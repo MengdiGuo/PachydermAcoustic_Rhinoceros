@@ -837,7 +837,7 @@ namespace Pachyderm_Acoustic
             }
 
             /// <summary>
-            /// Class used ot store the energy histogram of the receiver.
+            /// Class used to store the energy histogram of the receiver.
             /// </summary>
             [Serializable]
             protected internal class Histogram

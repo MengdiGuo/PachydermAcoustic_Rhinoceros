@@ -268,41 +268,35 @@ namespace Pachyderm_Acoustic
                 //5. Announce that the following data pertains to the form of the analysis mesh. (string)
                 sw.WriteLine("Mesh Information:");
                 //6. Announce Mesh Vertices (string)
-                sw.WriteLine("Mesh Vertices:");
+                sw.WriteLine("number of Mesh Vertices:");
                 //Write the number of vertices (int) (int)
+               
                 sw.WriteLine((UInt32)Rec_List[0].Map_Mesh.Vertices.Count);
-
-                for (int i = 0; i < Rec_List[0].Map_Mesh.Vertices.Count; i++)
+                //comment the following session to avoid reading too much vertice coordinate 
+                /*for (int i = 0; i < Rec_List[0].Map_Mesh.Vertices.Count; i++)
                 {
                     //Write Vertex: (double) (double) (double)
-                    /*sw.WriteLine(Rec_List[0].Map_Mesh.Vertices[i].X);
-                    sw.WriteLine(Rec_List[0].Map_Mesh.Vertices[i].Y);
-                    sw.WriteLine(Rec_List[0].Map_Mesh.Vertices[i].Z); */
                     string meshvertice = Helper_Functions.ConvertToCSVString(
                         Rec_List[0].Map_Mesh.Vertices[i].X,
                         Rec_List[0].Map_Mesh.Vertices[i].Y,
                         Rec_List[0].Map_Mesh.Vertices[i].Z);
                     sw.WriteLine(meshvertice);
-                }
+                }*/
                 //7. Announce Mesh Faces (string)
                 sw.WriteLine("Mesh Faces:");
                 // Write the number of faces 
                 sw.WriteLine((UInt32)Rec_List[0].Map_Mesh.Faces.Count);
-
-                for (int i = 0; i < Rec_List[0].Map_Mesh.Faces.Count; i++)
+                //comment the following session to avoid reading too much vertice coordinate 
+                /*for (int i = 0; i < Rec_List[0].Map_Mesh.Faces.Count; i++)
                 {
                     // Write mesh vertex indices: (int) (int) (int) (int)
-                    /*sw.WriteLine((UInt32)Rec_List[0].Map_Mesh.Faces[i][0]);
-                    sw.WriteLine((UInt32)Rec_List[0].Map_Mesh.Faces[i][1]);
-                    sw.WriteLine((UInt32)Rec_List[0].Map_Mesh.Faces[i][2]);
-                    sw.WriteLine((UInt32)Rec_List[0].Map_Mesh.Faces[i][3]);*/
                     string meshfaces = Helper_Functions.ConvertToCSVString(
                         (UInt32)Rec_List[0].Map_Mesh.Faces[i][0],
                         (UInt32)Rec_List[0].Map_Mesh.Faces[i][1],
                         (UInt32)Rec_List[0].Map_Mesh.Faces[i][2],
                         (UInt32)Rec_List[0].Map_Mesh.Faces[i][3]);
                     sw.WriteLine(meshfaces);
-                }
+                }*/
                 //7.5: Announce the number of sources.
                 //sw.WriteLine("Sources");
                 sw.WriteLine("Number of Receivers:");
@@ -311,11 +305,6 @@ namespace Pachyderm_Acoustic
                 sw.WriteLine("Source Coordinate, Type, and delaytime in ms:");
                 for (int i = 0; i < Rec_List.Length; i++)
                 {
-                    /*
-                    sw.WriteLine(Rec_List[i].Src.X);
-                    sw.WriteLine(Rec_List[i].Src.Y);
-                    sw.WriteLine(Rec_List[i].Src.Z);
-                    //////////////////////*/
                     sw.WriteLine(Helper_Functions.ConvertToCSVString(Rec_List[i].Src.X, Rec_List[i].Src.Y, Rec_List[i].Src.Z));
                     sw.WriteLine(Rec_List[i].SrcType);
                     sw.WriteLine(Rec_List[i].delay_ms);//v.2.0.0.1
